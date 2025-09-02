@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Main from './pages/Main.jsx'
+import Detail from './pages/Detail.jsx'
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Main />} />
-        <Route path='/detail/:id' element={<>detail</>} />
+        <Route path='/detail/:id' element={<Detail />} />
         <Route path='/cart' element={<>cart</>} />
         <Route path='/wishlist' element={<>wishlist</>} />
         <Route path='/about' element={<>about</>} />
