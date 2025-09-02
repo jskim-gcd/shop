@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 function Detail() {
 
-    let shoes = useSelector((state) => state.shoes)
+    let shoes = useSelector(state => state.shoes)
 
     return (
         <>
