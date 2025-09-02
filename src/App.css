@@ -4,3 +4,9 @@
   /* padding: 2rem; */
   text-align: center;
 }
+
+.main-bg {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+}
