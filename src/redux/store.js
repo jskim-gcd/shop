@@ -8,11 +8,14 @@ let shoes = createSlice({
         addItem(state, action) {
             let copy = [...state, ...action.payload]
             return copy
+        },
+        setItem(state, action) {
+            return action.payload
         }
     }
 })
 
-export let { addItem } = shoes.actions
+export let { addItem, setItem } = shoes.actions
 
 export default configureStore({
     reducer: {
