@@ -37,7 +37,7 @@ function Cart() {
                                             dispatch(countDown(a.id))
                                         }}>-</button>
                                     </td>
-                                    <td>{a.price}</td>
+                                    <td>{a.totalPrice}원</td>
                                     <td>
                                         <button onClick={() => {
                                             dispatch(subtractCart(a.id))

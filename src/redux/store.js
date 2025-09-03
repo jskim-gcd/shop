@@ -18,7 +18,7 @@ let shoes = createSlice({
 let cart = createSlice({
     name: 'cart',
     initialState: [
-        { id: 12351, title: 'test', count: 1, price: 100 }
+        { id: 12351, title: 'test', count: 1, totalPrice: 100, price: 100 }
     ],
     reducers: {
         addCart(state, action) {
@@ -32,11 +32,13 @@ let cart = createSlice({
         countUp(state, action) {
             let idx = state.findIndex(a => a.id == action.payload)
             state[idx].count += 1
+            state[idx].totalPrice += state[idx].price
         },
         countDown(state, action) {
             let idx = state.findIndex(a => a.id == action.payload)
             if (state[idx].count > 1) {
                 state[idx].count -= 1
+                state[idx].totalPrice -= state[idx].price
             }
         },
         subtractCart(state, action) {

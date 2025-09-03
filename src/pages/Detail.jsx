@@ -28,7 +28,10 @@ function Detail() {
                         <p>{shoes[idx].content}</p>
                         <p>{shoes[idx].price}원</p>
                         <Button variant="danger" onClick={() => {
-                            dispatch(addCart({ id: shoes[idx].id, title: shoes[idx].title, count: 1, price: shoes[idx].price }))
+                            dispatch(addCart(
+                                { id: shoes[idx].id, title: shoes[idx].title, 
+                                    count: 1, totalPrice: shoes[idx].price, price: shoes[idx].price }
+                            ))
                         }}>카트담기</Button>
                     </Col>
                 </Row>
