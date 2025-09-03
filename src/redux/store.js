@@ -49,12 +49,27 @@ let cart = createSlice({
     }
 })
 
+let wishlist = createSlice({
+    name: 'wishlist',
+    initialState: [],
+    reducers: {
+        addWishItem(state, action) {
+            let idx = state.findIndex(a => a.id == action.payload.id)
+            if (idx == -1) {
+                state.push(action.payload)
+            }
+        }
+    }
+})
+
 export let { addItem, setItem } = shoes.actions
 export let { addCart, countUp, countDown, subtractCart } = cart.actions
+export let { addWishItem } = wishlist.actions
 
 export default configureStore({
     reducer: {
         shoes: shoes.reducer,
-        cart: cart.reducer
+        cart: cart.reducer,
+        wishlist: wishlist.reducer
     },
 })

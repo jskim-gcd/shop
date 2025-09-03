@@ -21,21 +21,21 @@ function Main() {
         <>
             <div className="main-bg" style={{ backgroundImage: 'url(' + bg + ')' }} />
             <SortButton shoes={shoes} dispatch={dispatch} />
-            <div>
-                <Container>
-                    <Row>
-                        {
-                            shoes.map((a, i) => {
-                                return (
-                                    <Card key={i} i={i} shoes={a} navigate={navigate} />
-                                )
-                            })
-                        }
-                    </Row>
-                </Container>
-            </div>
+
+            <Container>
+                <Row>
+                    {
+                        shoes.map((a, i) => {
+                            return (
+                                <Card key={i} i={i} shoes={a} navigate={navigate} />
+                            )
+                        })
+                    }
+                </Row>
+            </Container>
+
             {load && <div>로딩중~</div>}
-            {count < 2 && <MoreButton count={count} setCount={setCount} dispatch={dispatch} setLoad={setLoad}/>}
+            {count < 2 && <MoreButton count={count} setCount={setCount} dispatch={dispatch} setLoad={setLoad} />}
         </>
     )
 }
@@ -44,8 +44,8 @@ function Card(props) {
 
     return (
         <Col sm={4}>
-            <img src={'https://codingapple1.github.io/shop/shoes' + (props.shoes.id + 1) + '.jpg'} width='80%' 
-            onClick={() => {props.navigate('/detail/' + props.shoes.id)}}/>
+            <img src={'https://codingapple1.github.io/shop/shoes' + (props.shoes.id + 1) + '.jpg'} width='80%'
+                onClick={() => { props.navigate('/detail/' + props.shoes.id) }} />
             <h4>{props.shoes.title}</h4>
             <p>{props.shoes.content}</p>
             <p>{props.shoes.price}</p>
@@ -79,7 +79,7 @@ function SortButton(props) {
             let texts = props.shoes.map(a => a.title)
             texts.sort()
             let sortedShoes = props.shoes.map((a, i) => {
-                return (props.shoes.find(s => {return s.title == texts[i]}))
+                return (props.shoes.find(s => { return s.title == texts[i] }))
             })
             props.dispatch(setItem(sortedShoes))
         }}>이름순</button>
