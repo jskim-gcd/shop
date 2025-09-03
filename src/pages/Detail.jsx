@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addCart } from "../redux/store.js";
 import { addWishItem } from "../redux/store.js";
+import { useEffect, useState } from "react";
 
 function Detail() {
 
     let shoes = useSelector(state => state.shoes)
+    let [fade, setFade] = useState('')
 
     let dispatch = useDispatch()
 
@@ -14,9 +16,17 @@ function Detail() {
 
     let idx = shoes.findIndex(a => { return a.id == id })
 
+    useEffect(() => {
+        setFade('end')
+
+        return () => {
+            setFade('')
+        }
+    }, [])
+
     return (
         <>
-            <Container>
+            <Container className={"start " + fade}>
                 <Row>
                     <Col md={6}>
                         <img src={

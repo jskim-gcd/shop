@@ -10,6 +10,7 @@ function Wishlist() {
 
     return (
         <>
+            {wishlist.length == 0 && <div>비어 있음</div>}
             <Container>
                 <Row>
                     {

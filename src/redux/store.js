@@ -18,7 +18,7 @@ let shoes = createSlice({
 let cart = createSlice({
     name: 'cart',
     initialState: [
-        { id: 12351, title: 'test', count: 1, totalPrice: 100, price: 100 }
+        // { id: 12345, title: 'test', count: 1, totalPrice: 100, price: 100 }
     ],
     reducers: {
         addCart(state, action) {

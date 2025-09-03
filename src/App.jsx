@@ -30,7 +30,7 @@ function App() {
         <Route path='/detail/:id' element={<Detail />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/wishlist' element={<Wishlist />} />
-        <Route path='/about' element={<>about</>} />
+        <Route path='/about' element={<>리액트로 만듦</>} />
 
         <Route path='*' element={<>404</>} />
       </Routes>

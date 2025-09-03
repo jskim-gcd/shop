@@ -33,7 +33,7 @@ function Cart() {
                                         <button onClick={() => {
                                             dispatch(countUp(a.id))
                                         }}>+</button>
-                                        <button onClick={()=> {
+                                        <button onClick={() => {
                                             dispatch(countDown(a.id))
                                         }}>-</button>
                                     </td>
