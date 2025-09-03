@@ -16,19 +16,39 @@ let shoes = createSlice({
 })
 
 let cart = createSlice({
-     name: 'cart',
-      initialState: [
-        {id: 0, title: 'test', price: 100, count: 1}
-      ],
-      reducers: {
+    name: 'cart',
+    initialState: [
+        { id: 12351, title: 'test', count: 1, price: 100 }
+    ],
+    reducers: {
         addCart(state, action) {
-            state.push(action.payload)
+            let idx = state.findIndex(a => a.id == action.payload.id)
+            if (idx == -1) {
+                state.push(action.payload)
+            } else {
+                state[idx].count += 1
+            }
+        },
+        countUp(state, action) {
+            let idx = state.findIndex(a => a.id == action.payload)
+            state[idx].count += 1
+        },
+        countDown(state, action) {
+            let idx = state.findIndex(a => a.id == action.payload)
+            if (state[idx].count > 1) {
+                state[idx].count -= 1
+            }
+        },
+        subtractCart(state, action) {
+            let idx = state.findIndex(a => a.id == action.payload)
+            state.splice(idx, 1)
         }
-      }
+
+    }
 })
 
 export let { addItem, setItem } = shoes.actions
-export let {addCart} = cart.actions
+export let { addCart, countUp, countDown, subtractCart } = cart.actions
 
 export default configureStore({
     reducer: {
