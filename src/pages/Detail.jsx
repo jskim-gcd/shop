@@ -1,10 +1,13 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { addCart } from "../redux/store.js";
 
 function Detail() {
 
     let shoes = useSelector(state => state.shoes)
+
+    let dispatch = useDispatch()
 
     let { id } = useParams()
 
@@ -24,7 +27,9 @@ function Detail() {
                         <h4 className="pt-5">{shoes[idx].title}</h4>
                         <p>{shoes[idx].content}</p>
                         <p>{shoes[idx].price}원</p>
-                        <Button variant="danger">주문하기</Button>
+                        <Button variant="danger" onClick={() => {
+                            dispatch(addCart({ id: shoes[idx].id, title: shoes[idx].title, price: shoes[idx].price, count: 1 }))
+                        }}>주문하기</Button>
                     </Col>
                 </Row>
             </Container>
