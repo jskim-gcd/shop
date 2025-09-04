@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import bg from '../img/bg.png'
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { useState } from "react";
 import { addItem, setItem } from "../redux/store.js";
 import axios from "axios";
@@ -56,7 +56,7 @@ function Card(props) {
 function MoreButton(props) {
     return (
         <>
-            <button onClick={() => {
+            <Button variant="outline-dark" onClick={() => {
                 props.setLoad(true)
                 axios.get('https://codingapple1.github.io/shop/data' + (props.count + 2) + '.json')
                     .then(result => {
@@ -68,21 +68,22 @@ function MoreButton(props) {
                         console.log('get 실패')
                         props.setLoad(false)
                     })
-            }}>더보기</button> {props.count}/2
+            }}>더보기</Button>
+            {props.count}/2
         </>
     )
 }
 
 function SortButton(props) {
     return (
-        <button onClick={() => {
+        <Button variant="info" onClick={() => {
             let texts = props.shoes.map(a => a.title)
             texts.sort()
             let sortedShoes = props.shoes.map((a, i) => {
                 return (props.shoes.find(s => { return s.title == texts[i] }))
             })
             props.dispatch(setItem(sortedShoes))
-        }}>이름순</button>
+        }}>이름순</Button>
     )
 }
 

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { countUp, countDown, subtractCart } from "../redux/store.js"
-import { Table } from "react-bootstrap"
+import { Button, Table } from "react-bootstrap"
 
 function Cart() {
 
@@ -30,18 +30,18 @@ function Cart() {
                                     <td>{a.title}</td>
                                     <td>{a.count}</td>
                                     <td>
-                                        <button onClick={() => {
+                                        <Button variant="outline-primary" onClick={() => {
                                             dispatch(countUp(a.id))
-                                        }}>+</button>
-                                        <button onClick={() => {
+                                        }}>+</Button>
+                                        <Button variant="outline-danger" onClick={() => {
                                             dispatch(countDown(a.id))
-                                        }}>-</button>
+                                        }}>-</Button>
                                     </td>
                                     <td>{a.totalPrice}원</td>
                                     <td>
-                                        <button onClick={() => {
+                                        <Button variant="danger" onClick={() => {
                                             dispatch(subtractCart(a.id))
-                                        }}>x</button>
+                                        }}>X</Button>
                                     </td>
                                 </tr>
                             )
