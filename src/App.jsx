@@ -6,8 +6,11 @@ import Main from './pages/Main.jsx'
 import Detail from './pages/Detail.jsx'
 import Cart from './pages/Cart.jsx'
 import Wishlist from './pages/Wishlist.jsx';
+import { useState } from 'react';
 
 function App() {
+
+  let [count, setCount] = useState(0)
 
   let navigate = useNavigate()
 
@@ -26,7 +29,7 @@ function App() {
       </Navbar>
 
       <Routes>
-        <Route path='/' element={<Main />} />
+        <Route path='/' element={<Main count={count} setCount={setCount}/>} />
         <Route path='/detail/:id' element={<Detail />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/wishlist' element={<Wishlist />} />

@@ -6,9 +6,8 @@ import { addItem, setItem } from "../redux/store.js";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Main() {
+function Main(props) {
 
-    let [count, setCount] = useState(0)
     let [load, setLoad] = useState(false)
 
     let shoes = useSelector(state => state.shoes)
@@ -20,6 +19,7 @@ function Main() {
     return (
         <>
             <div className="main-bg" style={{ backgroundImage: 'url(' + bg + ')' }} />
+
             <SortButton shoes={shoes} dispatch={dispatch} />
 
             <Container>
@@ -35,7 +35,7 @@ function Main() {
             </Container>
 
             {load && <div>로딩중~</div>}
-            {count < 2 && <MoreButton count={count} setCount={setCount} dispatch={dispatch} setLoad={setLoad} />}
+            {props.count < 2 && <MoreButton count={props.count} setCount={props.setCount} dispatch={dispatch} setLoad={setLoad} />}
         </>
     )
 }
