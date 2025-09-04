@@ -1,10 +1,13 @@
 import { Col, Container, Row } from "react-bootstrap"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { subtractWishItem } from "../redux/store.js"
 
 function Wishlist() {
 
     let wishlist = useSelector(state => state.wishlist)
+
+    let dispatch = useDispatch()
 
     let navigate = useNavigate()
 
@@ -16,7 +19,8 @@ function Wishlist() {
                     {
                         wishlist.map((a, i) => {
                             return (
-                                <Card key={i} i={i} shoes={a} navigate={navigate} />
+                                <Card key={i} i={i} shoes={a} navigate={navigate}
+                                    dispatch={dispatch} />
                             )
                         })
                     }
@@ -35,6 +39,9 @@ function Card(props) {
             <h4>{props.shoes.title}</h4>
             <p>{props.shoes.content}</p>
             <p>{props.shoes.price}</p>
+            <p onClick={() => {
+                props.dispatch(subtractWishItem(props.shoes.id))
+            }} style={{ cursor: 'pointer' }}>💔</p>
         </Col>
     )
 }

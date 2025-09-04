@@ -58,13 +58,17 @@ let wishlist = createSlice({
             if (idx == -1) {
                 state.push(action.payload)
             }
+        },
+        subtractWishItem(state, action) {
+            let idx = state.findIndex(a => a.id == action.payload)
+            state.splice(idx, 1)
         }
     }
 })
 
 export let { addItem, setItem } = shoes.actions
 export let { addCart, countUp, countDown, subtractCart } = cart.actions
-export let { addWishItem } = wishlist.actions
+export let { addWishItem, subtractWishItem } = wishlist.actions
 
 export default configureStore({
     reducer: {
