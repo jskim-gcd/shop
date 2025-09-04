@@ -20,7 +20,9 @@ function Main(props) {
         <>
             <div className="main-bg" style={{ backgroundImage: 'url(' + bg + ')' }} />
 
-            <SortButton shoes={shoes} dispatch={dispatch} />
+            <div className="sort-button-div"> 
+                <SortButton shoes={shoes} dispatch={dispatch} />
+            </div>
 
             <Container>
                 <Row>
@@ -76,7 +78,7 @@ function MoreButton(props) {
 
 function SortButton(props) {
     return (
-        <Button variant="info" onClick={() => {
+        <Button variant="outline-info" onClick={() => {
             let texts = props.shoes.map(a => a.title)
             texts.sort()
             let sortedShoes = props.shoes.map((a, i) => {

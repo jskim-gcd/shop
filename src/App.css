@@ -19,3 +19,10 @@
   opacity: 1;
   transition: all 0.5s;
 }
+
+.sort-button-div {
+    text-align: right;
+    padding-right: 60px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
