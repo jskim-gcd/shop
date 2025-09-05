@@ -5,10 +5,34 @@
   text-align: center;
 }
 
-.main-bg {
-  height: 300px;
+.main-banner-container {
+  position: relative;
+}
+
+.main-banner-bg {
+  height: 675px;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.main-banner-content {
+  position: absolute;
+  top: 35%;
+  left: 5%;
+  text-align: left;
+  z-index: 2;
+}
+
+.main-banner-content h1 {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+.main-banner-content button {
+  margin-top: 20px;
+  margin-left: 3px;
 }
 
 .start {

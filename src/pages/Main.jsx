@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import bg from '../img/bg.png'
+import bg from '../img/bg2.png'
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { addItem, setItem } from "../redux/store.js";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -16,11 +16,22 @@ function Main(props) {
 
     let navigate = useNavigate()
 
+    let productsRef = useRef(null)
+
     return (
         <>
-            <div className="main-bg" style={{ backgroundImage: 'url(' + bg + ')' }} />
+            <div className="main-banner-container">
+                <div className="main-banner-bg" style={{ backgroundImage: 'url(' + bg + ')' }} />
 
-            <div className="sort-button-div"> 
+                <div className="main-banner-content">
+                    <h1>Best Seller<br />Book Shop</h1>
+                    <Button variant="outline-dark" onClick={() => {
+                        productsRef.current?.scrollIntoView({behavior: 'smooth'})
+                    }}>See More</Button>
+                </div>
+            </div>
+
+            <div className="sort-button-div" ref={productsRef}>
                 <SortButton shoes={shoes} dispatch={dispatch} />
             </div>
 
