@@ -16,6 +16,11 @@ function Signup() {
             return
         }
 
+        if (id == '' && password == '') {
+            alert('다시 확인해주세요.')
+            return
+        }
+
         let newUser = [...users, { id, password }]
         localStorage.setItem('users', JSON.stringify(newUser))
 
