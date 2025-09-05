@@ -45,10 +45,12 @@ function Detail() {
                                     count: 1, totalPrice: shoes[idx].price, price: shoes[idx].price
                                 }
                             ))
+                            alert('상품이 카트에 담겼습니다.')
                         }}>카트담기</Button>
                         <span onClick={() => {
                             let item = shoes.find(a => a.id == id)
                             dispatch(addWishItem(item))
+                            alert('상품이 위시리스트에 추가되었습니다.')
                         }} style={{ cursor: 'pointer' }}>❤️</span>
                     </Col>
                 </Row>

@@ -27,6 +27,7 @@ function App() {
   function logout() {
     sessionStorage.removeItem('loggedInUser')
     setUserIn(false)
+    alert('로그아웃 되었습니다.')
   }
 
   return (
