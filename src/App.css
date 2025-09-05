@@ -22,7 +22,21 @@
 
 .sort-button-div {
     text-align: right;
-    padding-right: 60px;
+    margin-right: 60px;
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+.login-title {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.signup-link {
+  color: black;
+  cursor: pointer;
+}
+
+.signup-link:hover{
+  text-decoration: underline;
 }

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Button, Form, InputGroup } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 
 function Login(props) {
@@ -24,12 +25,33 @@ function Login(props) {
 
     return (
         <>
-            <h2>로그인</h2>
-            <input type="text" placeholder="아이디" onChange={(e) => { setId(e.target.value) }}></input>
-            <input type="password" placeholder="비밀번호" onChange={(e) => { setPassword(e.target.value) }}></input>
-            <button onClick={doLogin}>로그인</button>
+            <h2 className="login-title">로그인</h2>
+
+            <div style={{ width: '25%', margin: '0 auto' }}>
+                <InputGroup className="mb-3">
+                    <Form.Control
+                        aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default"
+                        placeholder="아이디"
+                        onChange={(e) => { setId(e.target.value) }}
+                    />
+                </InputGroup>
+                <InputGroup className="mb-3">
+                    <Form.Control
+                        type="password"
+                        id="inputPassword5"
+                        aria-describedby="passwordHelpBlock"
+                        placeholder="비밀번호"
+                        onChange={(e) => { setPassword(e.target.value) }}
+                    />
+                </InputGroup>
+            </div>
+
+            <Button variant="outline-dark" id="button-addon1" onClick={doLogin}>
+                로그인
+            </Button>
             <br /><br />
-            <button onClick={() => { navigate('/signup') }}>회원가입</button>
+            <p onClick={() => { navigate('/signup') }} className="signup-link">회원가입</p>
         </>
     )
 }
