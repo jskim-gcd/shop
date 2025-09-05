@@ -26,13 +26,16 @@ function Main(props) {
                 <div className="main-banner-content">
                     <h1>Best Seller<br />Book Shop</h1>
                     <Button variant="outline-dark" onClick={() => {
-                        productsRef.current?.scrollIntoView({behavior: 'smooth'})
+                        productsRef.current?.scrollIntoView({ behavior: 'smooth' })
                     }}>See More</Button>
                 </div>
             </div>
 
-            <div className="sort-button-div" ref={productsRef}>
-                <SortButton shoes={shoes} dispatch={dispatch} />
+            <div className="main-products" ref={productsRef}>
+                <span>Products</span>
+                <div className="sort-button-div">
+                    <SortButton shoes={shoes} dispatch={dispatch} />
+                </div>
             </div>
 
             <Container>

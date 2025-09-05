@@ -44,11 +44,23 @@
   transition: all 0.5s;
 }
 
+.main-products {
+  position: relative;
+  height: 80px;
+}
+
+.main-products span {
+  position: absolute;
+  top: 30%;
+  left: 6%;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
 .sort-button-div {
-    text-align: right;
-    margin-right: 60px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    position: absolute;
+    top: 40%;
+    left: 90%;
 }
 
 .login-title {
