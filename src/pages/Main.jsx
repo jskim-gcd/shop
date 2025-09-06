@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import bg from '../img/bg2.png'
+import bg from '../img/mainBanner.png'
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { useRef, useState } from "react";
 import { addItem, setItem } from "../redux/store.js";
