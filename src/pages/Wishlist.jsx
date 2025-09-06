@@ -33,15 +33,19 @@ function Wishlist() {
 function Card(props) {
 
     return (
-        <Col sm={4}>
-            <img src={'https://codingapple1.github.io/shop/shoes' + (props.shoes.id + 1) + '.jpg'} width='80%'
-                onClick={() => { props.navigate('/detail/' + props.shoes.id) }} />
-            <h4>{props.shoes.title}</h4>
-            <p>{props.shoes.content}</p>
-            <p>{props.shoes.price}</p>
-            <p onClick={() => {
-                props.dispatch(subtractWishItem(props.shoes.id))
-            }} style={{ cursor: 'pointer' }}>💔</p>
+        <Col sm={3}>
+            <div className="wishlist-card">
+                <img src={'https://jskim-gcd.github.io/data/img/books' + (props.shoes.id + 1) + '.jpg'}
+                    onClick={() => { props.navigate('/detail/' + props.shoes.id) }} 
+                    width="200px" height="300px" />
+                <br/><br/>
+                <h4>{props.shoes.title}</h4>
+                <p>{props.shoes.content}</p>
+                <p>{props.shoes.price}</p>
+                <p onClick={() => {
+                    props.dispatch(subtractWishItem(props.shoes.id))
+                }} style={{ cursor: 'pointer' }}>💔</p>
+            </div>
         </Col>
     )
 }

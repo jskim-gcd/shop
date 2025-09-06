@@ -30,13 +30,13 @@ function Detail() {
                 <Row>
                     <Col md={6}>
                         <img src={
-                            "https://codingapple1.github.io/shop/shoes" + (Number(id) + 1) + '.jpg'
-                        } width="100%" />
+                            "https://jskim-gcd.github.io/data/img/books" + (Number(id) + 1) + '.jpg'
+                        } className="detail-img" />
                     </Col>
                     <Col md={6} className="mt-4">
                         <br />
                         <h4 className="pt-5">{shoes[idx].title}</h4>
-                        <p>{shoes[idx].content}</p>
+                        <p>{shoes[idx].author}</p>
                         <p>{shoes[idx].price}원</p>
                         <Button variant="danger" onClick={() => {
                             dispatch(addCart(

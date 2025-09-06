@@ -43,7 +43,9 @@ function Main(props) {
                     {
                         shoes.map((a, i) => {
                             return (
-                                <Card key={i} i={i} shoes={a} navigate={navigate} />
+                               
+                                    <Card key={i} i={i} shoes={a} navigate={navigate} />
+                              
                             )
                         })
                     }
@@ -51,7 +53,7 @@ function Main(props) {
             </Container>
 
             {load && <div>로딩중~</div>}
-            {props.count < 2 && <MoreButton count={props.count} setCount={props.setCount} dispatch={dispatch} setLoad={setLoad} />}
+            {props.count < 1 && <MoreButton count={props.count} setCount={props.setCount} dispatch={dispatch} setLoad={setLoad} />}
         </>
     )
 }
@@ -59,12 +61,16 @@ function Main(props) {
 function Card(props) {
 
     return (
-        <Col sm={4}>
-            <img src={'https://codingapple1.github.io/shop/shoes' + (props.shoes.id + 1) + '.jpg'} width='80%'
+        <Col sm={3}>
+             <div className="main-card">
+            <img src={'https://jskim-gcd.github.io/data/img/books' + (props.shoes.id + 1) + '.jpg'}
+                width='200px' height='300px'
                 onClick={() => { props.navigate('/detail/' + props.shoes.id) }} />
+            <br /><br />
             <h4>{props.shoes.title}</h4>
-            <p>{props.shoes.content}</p>
+            <p>{props.shoes.author}</p>
             <p>{props.shoes.price}</p>
+              </div>
         </Col>
     )
 }
@@ -74,7 +80,7 @@ function MoreButton(props) {
         <>
             <Button variant="outline-dark" onClick={() => {
                 props.setLoad(true)
-                axios.get('https://codingapple1.github.io/shop/data' + (props.count + 2) + '.json')
+                axios.get('https://jskim-gcd.github.io/data/products.json')
                     .then(result => {
                         props.dispatch(addItem(result.data))
                         props.setCount(props.count + 1)
@@ -85,7 +91,7 @@ function MoreButton(props) {
                         props.setLoad(false)
                     })
             }}>더보기</Button>
-            {props.count}/2
+            {props.count}/1
         </>
     )
 }
