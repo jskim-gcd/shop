@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import bg from '../img/mainBanner.png'
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { addItem, setItem } from "../redux/store.js";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 function Main(props) {
 
     let [load, setLoad] = useState(false)
+    let [move, setMove] = useState('')
 
     let books = useSelector(state => state.books)
 
@@ -18,12 +19,21 @@ function Main(props) {
 
     let productsRef = useRef(null)
 
+    useEffect(() => {
+        let timer = setTimeout(() => {setMove('move')}, 10)
+        
+        return () => {
+            clearTimeout(timer) 
+            setMove('')
+        }
+    }, [])
+
     return (
         <>
             <div className="main-banner-container">
                 <div className="main-banner-bg" style={{ backgroundImage: 'url(' + bg + ')' }} />
 
-                <div className="main-banner-content">
+                <div className={"main-banner-content " + move}>
                     <h1>Best Seller<br />Book Shop</h1>
                     <Button variant="outline-dark" onClick={() => {
                         productsRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -32,7 +42,7 @@ function Main(props) {
             </div>
 
             <div className="main-products" ref={productsRef}>
-                <span>Products</span>
+                <span>Books</span>
                 <div className="sort-button-div">
                     <SortButton books={books} dispatch={dispatch} />
                 </div>
