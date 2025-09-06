@@ -19,7 +19,7 @@ function Wishlist() {
                     {
                         wishlist.map((a, i) => {
                             return (
-                                <Card key={i} i={i} shoes={a} navigate={navigate}
+                                <Card key={i} i={i} books={a} navigate={navigate}
                                     dispatch={dispatch} />
                             )
                         })
@@ -35,15 +35,15 @@ function Card(props) {
     return (
         <Col sm={3}>
             <div className="wishlist-card">
-                <img src={'https://jskim-gcd.github.io/data/img/books' + (props.shoes.id + 1) + '.jpg'}
-                    onClick={() => { props.navigate('/detail/' + props.shoes.id) }} 
+                <img src={'https://jskim-gcd.github.io/data/img/books' + (props.books.id + 1) + '.jpg'}
+                    onClick={() => { props.navigate('/detail/' + props.books.id) }}
                     width="200px" height="300px" />
-                <br/><br/>
-                <h4>{props.shoes.title}</h4>
-                <p>{props.shoes.content}</p>
-                <p>{props.shoes.price}</p>
+                <br /><br />
+                <h4>{props.books.title}</h4>
+                <p>{props.books.content}</p>
+                <p>{props.books.price}</p>
                 <p onClick={() => {
-                    props.dispatch(subtractWishItem(props.shoes.id))
+                    props.dispatch(subtractWishItem(props.books.id))
                 }} style={{ cursor: 'pointer' }}>💔</p>
             </div>
         </Col>

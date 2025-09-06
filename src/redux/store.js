@@ -1,8 +1,8 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 import products from '../data/products.js'
 
-let shoes = createSlice({
-    name: 'shoes',
+let books = createSlice({
+    name: 'books',
     initialState: products,
     reducers: {
         addItem(state, action) {
@@ -66,13 +66,13 @@ let wishlist = createSlice({
     }
 })
 
-export let { addItem, setItem } = shoes.actions
+export let { addItem, setItem } = books.actions
 export let { addCart, countUp, countDown, subtractCart } = cart.actions
 export let { addWishItem, subtractWishItem } = wishlist.actions
 
 export default configureStore({
     reducer: {
-        shoes: shoes.reducer,
+        books: books.reducer,
         cart: cart.reducer,
         wishlist: wishlist.reducer
     },

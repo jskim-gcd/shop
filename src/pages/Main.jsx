@@ -10,7 +10,7 @@ function Main(props) {
 
     let [load, setLoad] = useState(false)
 
-    let shoes = useSelector(state => state.shoes)
+    let books = useSelector(state => state.books)
 
     let dispatch = useDispatch()
 
@@ -34,18 +34,17 @@ function Main(props) {
             <div className="main-products" ref={productsRef}>
                 <span>Products</span>
                 <div className="sort-button-div">
-                    <SortButton shoes={shoes} dispatch={dispatch} />
+                    <SortButton books={books} dispatch={dispatch} />
                 </div>
             </div>
 
             <Container>
                 <Row>
                     {
-                        shoes.map((a, i) => {
+                        books.map((a, i) => {
                             return (
-                               
-                                    <Card key={i} i={i} shoes={a} navigate={navigate} />
-                              
+                                <Card key={i} i={i} books={a} navigate={navigate} />
+
                             )
                         })
                     }
@@ -62,15 +61,15 @@ function Card(props) {
 
     return (
         <Col sm={3}>
-             <div className="main-card">
-            <img src={'https://jskim-gcd.github.io/data/img/books' + (props.shoes.id + 1) + '.jpg'}
-                width='200px' height='300px'
-                onClick={() => { props.navigate('/detail/' + props.shoes.id) }} />
-            <br /><br />
-            <h4>{props.shoes.title}</h4>
-            <p>{props.shoes.author}</p>
-            <p>{props.shoes.price}</p>
-              </div>
+            <div className="main-card">
+                <img src={'https://jskim-gcd.github.io/data/img/books' + (props.books.id + 1) + '.jpg'}
+                    width='200px' height='300px'
+                    onClick={() => { props.navigate('/detail/' + props.books.id) }} />
+                <br /><br />
+                <h4>{props.books.title}</h4>
+                <p>{props.books.author}</p>
+                <p>{props.books.price}</p>
+            </div>
         </Col>
     )
 }
@@ -99,12 +98,12 @@ function MoreButton(props) {
 function SortButton(props) {
     return (
         <Button variant="outline-info" onClick={() => {
-            let texts = props.shoes.map(a => a.title)
+            let texts = props.books.map(a => a.title)
             texts.sort()
-            let sortedShoes = props.shoes.map((a, i) => {
-                return (props.shoes.find(s => { return s.title == texts[i] }))
+            let sortedBooks = props.books.map((a, i) => {
+                return (props.books.find(s => { return s.title == texts[i] }))
             })
-            props.dispatch(setItem(sortedShoes))
+            props.dispatch(setItem(sortedBooks))
         }}>이름순</Button>
     )
 }
